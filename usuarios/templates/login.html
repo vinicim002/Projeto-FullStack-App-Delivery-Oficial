@@ -9,7 +9,7 @@
     <main class="tela-login d-flex flex-column">
         {% if status == '1' %}
         <div class="alert alert-danger" role="alert">
-            Email ou Senha inválidos! 
+            Email ou Senha inválidos!
         </div>
         {% endif %}
 
@@ -66,14 +66,9 @@
             </div>
         
             <div class="btns d-flex flex-row w-100 align-items-center justify-content-around">
-                <button 
-                    type="submit" 
-                    class="btn btn-primary">Acessar</button>
+                <button type="submit" class="btn btn-primary">Acessar</button>
                 
-                <button 
-                    type="submit" 
-                    class="btn btn-outline-primary"
-                    onclick="window.location.href='{% url 'cadastro' %}'">Cadastrar</button>
+                <a href="{% url 'cadastro' %}" class="btn btn-outline-primary">Cadastrar</a>
             </div>
         </form>
         <!-- Fim da Section 2 -->

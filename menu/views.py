@@ -3,13 +3,18 @@ from django.http import HttpResponse
 from usuarios.models import Usuario
 from .models import ItemMenu, Categoria
 
-
-
-# Create your views here.
-
 def home(request):
     if request.session.get('usuario'):
-        usuario = Usuario.objects.get(id = request.session['usuario']).nome
-        return HttpResponse(f'ola {usuario}')
+        usuario = Usuario.objects.get(id=request.session['usuario']).nome
+        return render(request, 'home.html', {'nome': usuario})
     else:
-        return redirect('/auth/login/?status=2')
+        if not request.session.get('carrinho'):
+            request.session['carrinho'] = []
+            request.session.save()
+        itemMenu = ItemMenu.objects.all()
+        categorias = Categoria.objects.all()
+        return render(request, 'home.html', {
+            'itemMenu': itemMenu,
+            'carrinho': len(request.session['carrinho']),
+            'categorias': categorias
+        })
