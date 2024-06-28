@@ -8,7 +8,6 @@ class Categoria(models.Model):
         return self.categoria
 
 class ItemMenu(models.Model):
-
     nome = models.CharField(max_length=100, unique=True)
     descricao = models.TextField()
     preco = models.FloatField()
@@ -17,7 +16,7 @@ class ItemMenu(models.Model):
     ultima_atualizacao = models.DateTimeField(auto_now=True)
     imagem = models.ImageField(upload_to='post_img', blank=True, null=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    ingredientes = models.CharField(max_length=200, default="Desconhecido")  # Definindo o valor padrão aqui
+    ingredientes = models.CharField(max_length=200, default="Desconhecido") 
 
     @mark_safe
     def icone(self):
