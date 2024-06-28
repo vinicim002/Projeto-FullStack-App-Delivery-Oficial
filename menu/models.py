@@ -8,7 +8,7 @@ class Categoria(models.Model):
         return self.categoria
 
 class ItemMenu(models.Model):
-    nome = models.CharField(max_length=100, unique=True)
+    nome_produto = models.CharField(max_length=100, unique=True)
     descricao = models.TextField()
     preco = models.FloatField()
     disponivel = models.BooleanField(default=True)
@@ -24,9 +24,9 @@ class ItemMenu(models.Model):
             return f'<img width="30px" src="/media/{self.imagem}">'
 
     def __str__(self):
-        return self.nome
+        return self.nome_produto  # Corrigido para retornar nome_produto
 
     class Meta:
-        ordering = ['nome']
+        ordering = ['nome_produto']
         verbose_name = "Item Menu"
         verbose_name_plural = "Itens do Menu"
