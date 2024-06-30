@@ -1,20 +1,26 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+# views.py
+from django.shortcuts import render
 from usuarios.models import Usuario
 from .models import ItemMenu, Categoria
 
 def home(request):
     if request.session.get('usuario'):
-        usuario = Usuario.objects.get(id=request.session['usuario']).nome
-        return render(request, 'home.html', {'nome': usuario})
+        usuario = Usuario.objects.filter(id=request.session['usuario']).first()
+        if usuario:
+            nome_usuario = usuario.nome
+        else:
+            nome_usuario = "Usuário Desconhecido"
+        return render(request, 'home.html', {'nome': nome_usuario})
     else:
         if not request.session.get('carrinho'):
             request.session['carrinho'] = []
             request.session.save()
-        itemMenu = ItemMenu.objects.all()
+
+        itemMenus = ItemMenu.objects.filter(disponivel=True)  # Filtrar apenas os itens disponíveis
         categorias = Categoria.objects.all()
+
         return render(request, 'home.html', {
-            'itemMenu': itemMenu,
+            'itemMenus': itemMenus,
             'carrinho': len(request.session['carrinho']),
-            'categorias': categorias
+            'categorias': categorias,
         })
