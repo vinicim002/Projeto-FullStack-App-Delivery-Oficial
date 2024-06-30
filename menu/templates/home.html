@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row">
     {% for item_menu in itemMenus %}
+    {% if item_menu.disponivel %}
     <div class="col-sm">
       <div class="cont">
           <img style="width: 350px; margin-top: 20px;" src="/media/{{item_menu.imagem}}">
@@ -13,9 +14,10 @@
       <h5 style="width: 350px; color: gray;" class="descricao bordaBottom">{{item_menu.descricao}}</h5>
       <h1 class="rosa">R$ {{item_menu.preco}}0</h1>
       <br>
-      <a style="margin-top: 20px;" href="" class="botao">Adicionar ao carrinho</a>
+      <a style="margin-top: 20px;" href="{% url 'produto' item_menu.id%}" class="botao">Adicionar ao carrinho</a>
       <br>
     </div>
+    {% endif %}
     {% endfor %}  
     
     
