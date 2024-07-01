@@ -93,26 +93,34 @@ def add_carrinho(request):
         for k in j:
             preco_total += Opcoes.objects.filter(id=int(k))[0].acrecimo
     
-    def troca_id_por_nome_adicional(adicional):
-        adicionais_com_nome = []
-        for i in adicionais:
-            opcoes = []
-            for j in i[1]:
-                op = Opcoes.objects.filter(id = int(j))[0].nome
-                opcoes.append(op) 
-            adicionais_com_nome.append((i[0], opcoes))
-        return adicionais_com_nome
-    
-    adicionais = troca_id_por_nome_adicional(adicionais)
-    
-    preco_total *= int(x['quantidade'][0])
-    data = {'id_produto': int(x['id'][0]),
-            'observacoes': x['observacoes'][0],
-            'preco': preco_total,
-            'adicionais': adicionais,
-            'quantidade': x['quantidade'][0]}
+from django.shortcuts import redirect
+from .models import ItemMenu
+
+def add_carrinho(request):
+    if not request.session.get('carrinho'):
+        request.session['carrinho'] = []
+        request.session.save()
+
+    x = dict(request.POST)
+    id_produto = int(x['id'][0])
+    quantidade = int(x['quantidade'][0])
+    observacoes = x.get('observacoes', [''])[0]
+
+    try:
+        produto = ItemMenu.objects.get(id=id_produto)
+        preco_total = produto.preco * quantidade
+    except ItemMenu.DoesNotExist:
+        return redirect('/')  # Redireciona para a página inicial se o produto não existir
+
+    data = {
+        'id_produto': id_produto,
+        'nome_produto': produto.nome_produto,
+        'observacoes': observacoes,
+        'preco': preco_total,
+        'quantidade': quantidade,
+        'imagem': produto.imagem.url if produto.imagem else None
+    }
 
     request.session['carrinho'].append(data)
     request.session.save()
-    #return HttpResponse(request.session['carrinho'])
-    return redirect(f'/ver_carrinho')
+    return redirect('/ver_carrinho')

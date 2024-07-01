@@ -1,0 +1,469 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --primary-color: #D8011B;
+    --secondary-color: #B9B9B9;
+    --background-color: #1E1E1E;
+    --text-color: #ffffff;
+    --border-color: #D7D7D7;
+    --font-family: "Open Sans", sans-serif;
+    --font-destaquue: "Berkshire Swash", serif;
+    --font-size-base: 1.6rem;
+    --font-size-h1: 3rem;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+}
+
+
+/*
+para trabalhar com rem em "forma de px" so utilizar no root o tamnho de 62.5, pois 16*0.625 = 10. Com isso 1.6rem = 16px
+*/
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: var(--background-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    color: #ffffff;
+}
+
+p,h1{
+    color: var(--text-color);
+}
+
+.logo{
+    width: 6rem;
+    height: 6rem;
+    margin: 3.9rem 0 0 1rem;
+}
+
+.endereco-pg-principal{
+    margin: 5rem 0 0 0;
+    text-align: center;
+}
+
+.bi.bi-chevron-down{
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin: 0 0 0 1.5rem; 
+}
+
+.bi.bi-bell{
+    font-size: 2.4rem;
+    color: var(--primary-color);
+    margin: 4.8rem 2rem 0 0;
+}
+
+.bi.bi-bell-confirmacao{
+  font-size: 2.4rem;
+  color: var(--primary-color);
+  margin: 4.8rem 2rem 0 1rem;
+}
+
+/*------------Barra de pesquisar------------*/
+
+.barra-pesquisa{
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    width: 29.4rem;
+    height: 5.9rem;
+    margin: 4rem auto;
+    background-color: var(--secondary-color);
+    border-radius: 3rem;
+    padding: 0.5rem 1rem;
+    color: var(--primary-color);
+}
+
+#pesquisarInput{
+    padding: 0.8REM;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+}
+
+input.pesquisarInputer-input::placeholder{
+    color: var(--text-color);
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+input#pesquisarInput::placeholder{
+    color: var(--text-color);
+    font-size: 1.6rem;
+}
+.pesquisar label{
+    height: 2rem;
+}
+
+span > i.bi.bi-search{
+    color: var(--primary-color);
+    font-size: 2.4rem;
+    margin: 0 0.5rem 0 0;
+}
+
+div > h1.fonte-destaque{
+    font-family: var(--font-destaquue);
+    font-size: 3rem;
+    text-align: left;
+}
+
+.texto-principal{
+    margin: 3rem 0 0 2rem;
+}
+
+/*------------Slider dos banners------------*/
+
+.carousel-indicators [data-bs-target] {
+    background-color: #ccc; /* Cor padrão para indicadores */
+  }
+  
+  .carousel-indicators .active {
+    background-color: #ff0000; /* Cor para o indicador ativo */
+  }
+  
+.slider{
+    margin: 5rem auto 0 auto;
+}
+
+.banner1, .banner2, .banner3{
+    width: 39.9rem;
+    height: 20rem;
+}
+
+/*------------Slider do menu------------*/
+
+.wrapper{
+    display: flex;
+    grid-gap: 1rem;
+    max-width: 76.8rem;
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x;
+
+    margin: 5rem 0rem 0 1.5rem;
+}
+
+.slider-menu {
+    min-width: calc(50% - .5rem);
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: flex-start;  /* Alinha itens ao lado esquerdo */
+    align-items: center;  /* Alinha itens verticalmente ao centro */
+    color: #ffffff;
+    font-size: 1rem;
+    scroll-snap-align: start;
+    width: 20rem;
+    height: 6rem;
+    border-radius: 1rem;
+    padding-left: 1rem;  /* Adiciona um espaço à esquerda */
+  }
+  
+  .slider-menu > p {
+    margin: 0;  /* Remove margens padrão */
+    font-size: 1.6rem;
+  }
+  
+  
+  .menu-principal {
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), 
+                url(../img/menu_principal.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .almoço{
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), 
+                url(../img/almoco.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+  }
+
+  .vegetariana{
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), 
+                url(../img/vegetariano.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .sobremesa{
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), 
+                url(../img/sobremesas.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .pizzas{
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), 
+                url(../img/pizzas.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .infantil{
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), 
+                url(../img/infantil.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .bebidas-nao-alcoolicas{
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), 
+                url(../img/bebidas_nao_alcolicas.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .bebidas-alcoolicas{
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), 
+                url(../img/bebidas_alcoolicas.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .vinhos{
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), 
+                url(../img/vinhos.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .btn-back{
+    margin: 5rem 0 3rem 1.5rem;
+}
+
+.bi{
+  font-size: 2.4rem;
+}
+
+.bi-chevron-left{
+  color: var(--primary-color);
+}
+
+.bolha-localizacao{
+  border-style: solid;
+  border-color: white;
+  border-radius: 1rem;
+}
+
+.div-row{
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+}
+
+.conteudo{
+  padding: 1.8rem
+}
+
+.border-top{
+  
+  border-top: white;
+  border-width: 1px;
+}
+
+.avatar{
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
+  margin-right: 2rem;
+}
+
+.usuario{
+  padding-bottom: 4.5rem;
+}
+
+.justify-self-end{
+  justify-self: end;
+}
+
+.imagem-background{
+  background-image: url('../img/almoco.jpg');
+  background-repeat: no-repeat;
+  object-fit: contain;
+  background-size: cover;
+}
+
+.default-bg-color{
+  background-color: var(--background-color);
+}
+
+.round-border{
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+}
+
+.justify-items-end{
+  display: flex;
+  justify-items: end;
+  align-self: end;
+}
+
+.h-full{
+  height: 100%;
+}
+
+.btn-primary{
+  width: 19rem;
+  height: 5.6rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.btns-large{
+  margin: 5rem 0 5rem 0;  
+}
+
+.btns-large-2{
+  position: fixed;
+  bottom: 2rem; 
+  left: 50%; 
+  transform: translateX(-50%);
+}
+
+.border-solid{
+  border: solid;
+  border-color: white;
+  border-radius: 2%;
+}
+
+.bi-chevron-right{
+  color: white;
+}
+
+.bi-card-text{
+  color: white;
+}
+
+.justify-self-end{
+  justify-self: end;
+}
+
+.menu-icons{
+  background-color: var(--primary-color);
+}
+
+.text-main{
+  color: var(--primary-color);
+}
+
+.p-endereco{
+  padding-top: 10%;
+}
+
+.verde{
+  background-color: green;
+  width: 10px;
+  height: 50px;
+  border-bottom-left-radius: 10px;
+}
+
+.branco{
+  background-color: white;
+  width: 10px;
+  height: 50px;
+}
+
+.vermelho{
+  background-color: red;
+  width: 10px;
+  height: 50px;
+  border-bottom-right-radius: 10px;
+}
+a { 
+  color: inherit; 
+} 
+
+.mt-endereco{
+  margin-top: 150px;
+}
+
+.sticky{
+  position: sticky;
+}
+
+#icons {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; /* Garantir que o footer fique acima de outros elementos, se necessário */
+}
+
+hr.linha-um{
+  color: var(--border-color);
+  background-color: var(--border-color);
+  margin-top: 20px;
+  height: 0.2rem;
+}
+
+hr.linha-dois{
+  color: var(--border-color);
+  background-color: var(--border-color);
+  height: 0.2rem;
+}
+
+.aperitivos{
+  font-family: var(--font-destaquue);
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 0 0 0 2rem;
+}
+
+.info-link{
+  text-decoration: none;
+}
+
+.info{
+  padding: 2rem;
+}
+
+.titulo-prato{
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-top: -20px;
+}
+
+.descricao{
+  font-size: 1rem;
+  text-align: justify;
+}
+
+.preco{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.saiba-mais{
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.saiba-mais > a{
+  text-decoration: none;
+}

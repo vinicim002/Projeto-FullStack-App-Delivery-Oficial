@@ -1,0 +1,423 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --primary-color: #D8011B;
+    --secondary-color: #B9B9B9;
+    --background-color: #1E1E1E;
+    --text-color: #ffffff;
+    --border-color: #D7D7D7;
+    --font-family: "Open Sans", sans-serif;
+    --font-destaquue: "Berkshire Swash", serif;
+    --font-size-base: 1.6rem;
+    --font-size-h1: 3rem;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+}
+
+
+/*
+para trabalhar com rem em "forma de px" so utilizar no root o tamnho de 62.5, pois 16*0.625 = 10. Com isso 1.6rem = 16px
+*/
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: var(--background-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    color: #ffffff;
+}
+
+p,h1{
+    color: var(--text-color);
+}
+
+/*--------------LOGIN--------------L*/
+
+/*Section 1*/
+
+.btn-back{
+    margin: 5rem 0 3rem 1.5rem;
+}
+
+.bi{
+    font-size: 2.4rem;
+}
+.bi-chevron-left{
+    color: var(--primary-color);
+}
+
+.section > h1{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.section > p{
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.section{
+    margin: 3rem 0 3rem 0.5rem;
+}
+
+/*Login*/
+
+.sectio2{
+    height: 100%;
+}
+
+/*Email*/
+
+.form-input{
+    width: 40rem;
+    height: 5.6rem;
+    background-color: var(--secondary-color);
+    color: var(--secondary-color);
+    font-size: 1.6rem;
+    
+}
+
+.form-label{
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: normal;
+
+}
+
+input.form-input::placeholder{
+    color: var(--text-color);
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+/*Password*/
+
+.password-container {
+    position: relative;
+}
+
+.form-input{
+    width: 40rem;
+    height: 5.6rem;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-size: 1.6rem;
+}
+
+.password-container .bi {
+    position: absolute;
+    font-size: 2rem;
+    top: 69%;
+    right: 1rem;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+}
+
+/*Checkbox*/
+
+.custom-checkbox input{
+    display: none;
+}
+
+.custom-checkbox input + label:before{
+    content: '';
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.4rem;
+    background-color: var(--secondary-color);
+    border: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.8rem 0.3rem 1.5rem;
+}
+
+.custom-checkbox input:checked + label:before{
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 10 10'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%23555555'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
+    background-color: var(--primary-color);
+    background-position: center;
+    border: none;
+    padding: 0.1rem;
+}
+
+/*Lembrar senha*/
+
+.lembrar-senha{
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+/*Esqueceu a senha*/
+
+.esqueci-senha{
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 0rem;
+    margin-right: 2rem;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+div .esqueci-senha:hover{
+    color: var(--primary-color);
+}
+
+/*Botoes de acesso ou cadastro*/
+
+.btns{
+    margin: 5rem 0 5rem 0;
+    
+}
+
+.btn-primary{
+    width: 19rem;
+    height: 5.6rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+/*Botao de cadastrar*/
+.btn-outline-primary{
+    width: 19rem;
+    height: 5.6rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+/*Outras Formas*/
+
+.section3 > div > p{
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.bloco-de-rede .icon-google,
+.bloco-de-rede .icon-facebook {
+    margin: 5rem 2rem 5rem 2rem;
+}
+
+hr {
+    border: none;
+    border-top: 0.2rem solid var(--border-color);
+    width: 20%;
+}
+
+.icon-google{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5.868rem;
+    height: 6.349rem;
+    background-color: var(--text-color);
+    border-radius: 0.5rem;
+    background-color: var(--secondary-color);
+}
+
+.icon-facebook{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5.868rem;
+    height: 6.349rem;
+    background-color: var(--secondary-color);
+    border-radius: 0.5rem;
+}
+
+/*--------------CADASTRO--------------*/
+
+.btns-large{
+    margin: 5rem 0 5rem 0;  
+}
+
+.btns-large .btn{
+    width: 40rem;
+    height: 5.6rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+/*--------------Esqueci a senha | Nova Senha--------------*/
+
+.btns-large-2{
+    position: fixed;
+    bottom: 2rem; 
+    left: 50%; 
+    transform: translateX(-50%);
+}
+
+/*--------------Como deseja ser chamado(a)?--------------*/
+
+.form-input{
+    width: 40rem;
+    height: 5.6rem;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-size: 1.6rem;
+    
+}
+
+/*--------------Qual o seu gênero--------------*/
+
+.dropdown {
+    min-width: 1.5rem; 
+    position: relative;
+    margin: 0.3rem; 
+}
+
+.dropdown * {
+    box-sizing: border-box;
+}
+
+.select {
+    background-color: var(--secondary-color);
+    width: 40rem;
+    height: 5.6rem;
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0.2rem var(--secondary-color) solid;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    transition: background 0.3s;
+}
+
+.caret {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-left: 1rem solid transparent; 
+    border-right: 1rem solid transparent; 
+    border-top: 1rem solid var(--primary-color);
+    transition: 0.3s;
+}
+
+.caret-rotate {
+    transform: rotate(180deg);
+}
+
+.menu {
+    list-style: none;
+    padding: 1rem 0 1rem 0;
+    background: var(--secondary-color);
+    border: 0.1rem var(--border-color) solid;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    color: var(--text-color);
+    position: absolute;
+    top: 9rem;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.menu li {
+    padding: 1.5rem 0rem 1.5rem 0.8rem;
+    margin: 0.3rem 4rem 0 0; 
+    border-radius: 0.5rem;
+}
+
+.active {
+    background: var(--primary-color);
+    width: 100%; 
+}
+
+.menu-open {
+    display: block;
+    opacity: 1;
+}
+
+
+/*--------------Qual a sua data de nascimento--------------*/
+
+/*OBS: EXTRAI ESSE CODIGO DO STACK OVERFLOW E LA DIZ O SEGUINTE: "A solução abaixo não funciona no navegador Firefox. Verifiquem compatibilidade em outros navegadores para esta solução. Os testes foram feitos e funcionaram nos navegadores Google Chrome e Brave." Entao caso nao funcione no seu navegador tenten no Chorme*/
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(18%) sepia(99%) saturate(5438%) hue-rotate(356deg) brightness(103%) contrast(115%);
+}
+
+/*--------------Informe seu CEP--------------*/
+
+h2.falta-pouco{
+    font-size: 1.6rem;
+}
+
+/*--------------Complete seu dados--------------*/
+
+/* Acesso */
+
+.img-acessar{
+    margin-top: 10rem;
+}
+
+.texto-acesso{
+    margin: 5rem auto 5rem auto;
+}
+
+div.texto-acesso > h1.fonte-destque{
+    font-family: var(--font-destaquue);
+    font-size: 3rem;
+    text-align: center;
+}
+
+div.texto-acesso > p{
+    font-family: var(--font-family);
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.btns-large-acesso .btn-primary{
+    width: 40rem;
+    height: 5.6rem;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-size: 1.6rem;
+    font-weight: 500;
+
+    font-size: 1.6rem;
+    font-family: var(--font-family);
+}
+
+.btns-large-acesso .btn-outline-primary{
+    width: 40rem;
+    height: 5.6rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 1.6rem;
+    font-weight: 500;
+
+    font-size: 1.6rem;
+    font-family: var(--font-family);
+}
+
